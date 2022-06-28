@@ -118,22 +118,92 @@ function gameObject(){
 }
 // console.log(gameObject());
 
-function homeTeamName() {
-    let object = gameObject()
-    return object['home']['teamName']
-  }
- // console.log(homeTeamName ())
+//split the object into two (home and away) objects.
+function homeTeam(){
+    return gameObject().home
+}
+
+function awayTeam(){
+    return gameObject().away
+}
+
+//merge results from the two functions and pluck players details only.
+
+function playersObject(){
+    return Object.assign({},homeTeam().players, awayTeam().players)
+}
+//console.log(playersObject);
+
+function numPointsScored(playersDetails) {
+    return playersObject()[playersDetails].points
+}
+
+//console.log(numPointsScored("Alan Anderson"))
+
+function shoeSize(playerName){
+    return playersObject()[playerName].shoe
+}
+//console.log(shoeSize("Alan Anderson"))
+
+
+//A function that returns a team's color
+function teamsObject(){
+    return Object.assign(homeTeam().colors, awayTeam().colors)
+}
+//console.log(teamsObject("Charlotte Hornets"))
+
+//A function that return players' name in an array
+function teamNames(){
+    return Object.keys(playersObject([0][0]))
+ }
+//console.log(teamNames())
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// function homeTeamName() {
+//     let object = gameObject()
+//     return object['home']['teamName']
+//   }
+//  // console.log(homeTeamName ())
   
-function numPointsScored(name){
-    const obj = gameObject()
-    for(const keyObj in obj){
-    const strickersObj = obj[keyObj]
-    const playerObj = strickersObj.players
-    for(const keyPlayer in playerObj){
-        if(keyPlayer === name){
-            return playerObj[keyPlayer].points
-        }
-    }
-}
-}
-console.log(numPointsScored("Mason Plumlee"))
+// function numPointsScored(name){
+//     const obj = gameObject()
+//     for(const keyObj in obj){
+//     const strickersObj = obj[keyObj]
+//     const playerObj = strickersObj.players
+//     for(const keyPlayer in playerObj){
+//         debugger
+//         if(keyPlayer === name){
+//             return playerObj[keyPlayer].points
+//         }
+//     }
+// }
+// }
+// console.log(numPointsScored("Mason Plumlee"))
+
