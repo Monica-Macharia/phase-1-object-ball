@@ -159,6 +159,16 @@ function teamNames(){
 //console.log(teamNames())
 
 
+function Stats(name){ 
+    return homeTeam()[name].number
+}
+//console.log(Stats("Alan Anderson"))
+
+
+function playerStats(name){ 
+    return playersObject()[name]
+}
+//console.log(playerStats("Alan Anderson"))
 
 
 
@@ -176,34 +186,4 @@ function teamNames(){
 
 
 
-
-
-
-
-
-
-
-
-
-
-// function homeTeamName() {
-//     let object = gameObject()
-//     return object['home']['teamName']
-//   }
-//  // console.log(homeTeamName ())
-  
-// function numPointsScored(name){
-//     const obj = gameObject()
-//     for(const keyObj in obj){
-//     const strickersObj = obj[keyObj]
-//     const playerObj = strickersObj.players
-//     for(const keyPlayer in playerObj){
-//         debugger
-//         if(keyPlayer === name){
-//             return playerObj[keyPlayer].points
-//         }
-//     }
-// }
-// }
-// console.log(numPointsScored("Mason Plumlee"))
 
